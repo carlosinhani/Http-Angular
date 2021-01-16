@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Curso } from './curso';
 
 import { tap } from "rxjs/operators";
+import { environment } from './../../environments/environment';
 
 
 @Injectable({
@@ -11,7 +12,7 @@ import { tap } from "rxjs/operators";
 })
 export class CursosService {
 
-  private readonly API = 'http://localhost:3000/cursos';
+  private readonly API =`${environment.API}cursos`;
 
   constructor(
     private http: HttpClient
