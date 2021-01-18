@@ -1,5 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+
 import { EnviarValorService } from '../enviar-valor.service';
+
 import { tap, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 
@@ -28,7 +30,6 @@ export class PocTakeUntilComponent implements OnInit, OnDestroy {
       )
       .subscribe(novoValor => this.valor = novoValor);
   }
-
   ngOnDestroy() {
     this.unsub$.next();
     this.unsub$.complete();

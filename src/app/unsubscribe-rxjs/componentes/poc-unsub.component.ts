@@ -1,5 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+
 import { EnviarValorService } from '../enviar-valor.service';
+
 import { Subscription } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
@@ -30,5 +32,4 @@ export class PocUnsubComponent implements OnInit, OnDestroy {
     this.sub.forEach(s => s.unsubscribe());
     console.log(`${this.nome} foi destruido`);
   }
-
 }

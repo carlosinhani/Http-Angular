@@ -1,5 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+
 import { EnviarValorService } from '../enviar-valor.service';
+
 import { tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
@@ -26,5 +28,4 @@ export class PocAsyncComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     console.log(`${this.nome} foi destruido`);
   }
-
 }

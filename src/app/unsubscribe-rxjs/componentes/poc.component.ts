@@ -1,5 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+
 import { EnviarValorService } from '../enviar-valor.service';
+
 import { tap } from 'rxjs/operators';
 
 @Component({
