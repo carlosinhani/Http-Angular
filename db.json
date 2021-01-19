@@ -7,6 +7,22 @@
     {
       "nome": "React",
       "id": 2
+    },
+    {
+      "nome": "Angular Material",
+      "id": 3
+    },
+    {
+      "nome": "HTML5",
+      "id": 4
+    },
+    {
+      "nome": "CSS3",
+      "id": 5
+    },
+    {
+      "nome": "javaScript",
+      "id": 6
     }
   ]
 }
