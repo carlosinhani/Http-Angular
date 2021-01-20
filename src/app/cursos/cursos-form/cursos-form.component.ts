@@ -54,9 +54,9 @@ export class CursosFormComponent implements OnInit {
     //   )
     //   .subscribe(curso => this.updateForm(curso));
 
-      // concatMap -> ordem da requisição importa
-      // mergeMap -> ordem não importa
-      // exhaustMap -> casos de login
+    // concatMap -> ordem da requisição importa
+    // mergeMap -> ordem não importa
+    // exhaustMap -> casos de login
 
     const curso = this.route.snapshot.data['curso'];
 
@@ -82,14 +82,42 @@ export class CursosFormComponent implements OnInit {
     console.log(this.form.value);
     if (this.form.valid) {
       console.log('submit');
-      this.service.create(this.form.value).subscribe(
+
+      let msgSuccess = 'Curso criado com sucesso!';
+      let msgError = 'Erro ao criar curso, tente novamente!';
+      if (this.form.value.id) {
+        msgSuccess = 'Curso atualizado com sucesso!';
+        msgError = 'Erro ao atulizar curso, tente novamente!';
+      }
+
+      this.service.save(this.form.value).subscribe(
         success => {
-          this.modal.showAlertSuccess('Curso criado com sucesso!');
+          this.modal.showAlertSuccess(msgSuccess);
           this.location.back();
         },
-        error => this.modal.showAlertDanger('Error ao criar curso, tente novamente!'),
-        () => console.log('request completo')
+        error => this.modal.showAlertDanger(msgError)
       );
+
+      // if (this.form.value.id) {
+      //   // update
+      //   this.service.update(this.form.value).subscribe(
+      //     success => {
+      //       this.modal.showAlertSuccess('Curso atualizado com sucesso!');
+      //       this.location.back();
+      //     },
+      //     error => this.modal.showAlertDanger('Error ao atualizar curso, tente novamente!'),
+      //     () => console.log('update completo')
+      //   );
+      // } else {
+      //   this.service.create(this.form.value).subscribe(
+      //     success => {
+      //       this.modal.showAlertSuccess('Curso criado com sucesso!');
+      //       this.location.back();
+      //     },
+      //     error => this.modal.showAlertDanger('Error ao criar curso, tente novamente!'),
+      //     () => console.log('request completo')
+      //   );
+      // }
     }
   }
 
@@ -98,5 +126,4 @@ export class CursosFormComponent implements OnInit {
     this.form.reset();
     // console.log('onCancel');
   }
-
 }

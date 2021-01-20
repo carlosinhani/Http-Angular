@@ -5,8 +5,8 @@
       "nome": "Angular"
     },
     {
-      "nome": "React",
-      "id": 2
+      "id": 2,
+      "nome": "React"
     },
     {
       "nome": "Angular Material",
@@ -31,6 +31,14 @@
     {
       "id": 8,
       "nome": "Java"
+    },
+    {
+      "id": 9,
+      "nome": "PostSQL"
+    },
+    {
+      "id": 10,
+      "nome": "MongoDB"
     }
   ]
 }
