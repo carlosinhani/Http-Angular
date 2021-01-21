@@ -4,9 +4,11 @@ import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 
 import { CursosService } from './../cursos.service';
+import { Cursos2Service } from '../cursos2.service';
 import { AlertModalService } from './../../shared/alert-modal.service';
 
 import { map, switchMap } from 'rxjs/operators';
+
 
 
 
@@ -22,7 +24,7 @@ export class CursosFormComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private service: CursosService,
+    private service: Cursos2Service,
     private modal: AlertModalService,
     private location: Location,
     private route: ActivatedRoute

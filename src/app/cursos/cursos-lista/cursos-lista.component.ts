@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { Curso } from '../curso';
 import { CursosService } from '../cursos.service';
+import { Cursos2Service } from '../cursos2.service';
 import { AlertModalComponent } from 'src/app/shared/alert-modal/alert-modal.component';
 import { AlertModalService } from './../../shared/alert-modal.service';
 
@@ -10,6 +11,7 @@ import { EMPTY, empty, Observable, Subject } from 'rxjs';
 import { catchError, map, switchMap, tap, take } from 'rxjs/operators';
 
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+
 
 
 
@@ -31,7 +33,7 @@ export class CursosListaComponent implements OnInit {
   @ViewChild('deleteModal') deleteModal;
 
   constructor(
-    private service: CursosService,
+    private service: Cursos2Service,
     private alertService: AlertModalService,
     private router: Router,
     private route: ActivatedRoute,
