@@ -31,6 +31,14 @@
     {
       "id": 8,
       "nome": "Java"
+    },
+    {
+      "id": 9,
+      "nome": "MongoDB"
+    },
+    {
+      "id": 10,
+      "nome": "PostSQL"
     }
   ]
 }
