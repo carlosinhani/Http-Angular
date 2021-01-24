@@ -5,14 +5,14 @@ import { filter, map, tap } from "rxjs/operators";
 
 export function filterResponse<T>() {
   return pipe(
-    filter((event: HttpEvent<T>) => event.type == HttpEventType.Response),
+    filter((event: HttpEvent<T>) => event.type === HttpEventType.Response),
     map((res: HttpResponse<T>) => res.body)
   )
 }
 
 export function uploadProgress<T>(cb: (progress: number) => void) {
   return tap((event: HttpEvent<T>) => {
-    if (event.type == HttpEventType.UploadProgress) {
+    if (event.type === HttpEventType.UploadProgress) {
       cb(Math.round((event.loaded * 100) / event.total));
     }
   });
