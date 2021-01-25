@@ -4,13 +4,14 @@ import { HttpEvent, HttpEventType } from '@angular/common/http';
 import { UploadFileService } from '../upload-file.service';
 import { filterResponse, uploadProgress } from 'src/app/shared/rxjs-operators';
 
-import { environment } from './../../../environments/environment.prod';
+import { environment } from './../../../environments/environment';
 
 
 @Component({
   selector: 'app-upload-file',
   templateUrl: './upload-file.component.html',
-  styleUrls: ['./upload-file.component.scss']
+  styleUrls: ['./upload-file.component.scss'],
+  preserveWhitespaces: true
 })
 export class UploadFileComponent implements OnInit {
 
@@ -62,5 +63,19 @@ export class UploadFileComponent implements OnInit {
       //   }
       // });
     }
+  }
+
+  onDownloadExcel() {
+    this.service.download(environment.BASE_URL + '/downloadExcel')
+      .subscribe((res: any) => {
+        this.service.handleFile(res, 'report.xlsx');
+      });
+  }
+
+  onDownloadPDF() {
+    this.service.download(environment.BASE_URL + '/downloadPDF')
+      .subscribe((res: any) => {
+        this.service.handleFile(res, 'report.pdf');
+      });
   }
 }
